@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>add room</title>
+</head>
+<body>
+
+<h2> Add Room Here !!   </h2>  <br> 
+Hotel <b> {{hotelname}} </b>
+<br><br>
+{{message}}
+<br><br>
+<form  method = "POST">
+	{% csrf_token %}
+  room_name : <input type="text" name="roomname">  <br>
+  room_price : <input type="number" step="1" name="roomprice"><br>
+  no of people : <input type="number" step="1" name="people"><br>
+  desc : <input type="text" name="desc">  <br>
+  city : <input type="text" name="city">  <br>
+    <input type="submit" value="Add Room"><br>
+</form>
+
+<a href = {% url 'hotels:addroom' %} > back </a>
+
+
+</body>
+</html>

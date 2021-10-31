@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>view rooms</title>
+</head>
+<body>
+
+Total Rooms : {{ totalrooms}} <br>
+Hotel <b> {{hotelname}} </b>
+
+{% for i in room %}
+<ul>  
+    <li>Room Id      : {{i.id}}</li>
+    <li>Room Name   : {{i.name}}</li>
+    <li>Room Price : {{i.price}}</li>
+    <li>Room desc   : {{i.desc}}</li>
+    <li>People    : {{i.number_of_people}}</li>
+    <li>city   : {{i.city}}</li>
+    <li><a href = "{% url 'hotels:editroom' i.id %}" class="btn btn-info btn-xs" > edit this room </a></li>
+
+
+</ul>
+{% endfor %}
+
+</body>
+</html>

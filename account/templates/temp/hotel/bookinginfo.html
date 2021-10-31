@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>booking info</title>
+</head>
+<body>
+
+{{message}} :: <b> {{booked}}  </b>
+
+{% for i in rooms %}
+<ul>  
+    <li>guest name      : {{i.guest.first_name}} {{i.guest.last_name}} ({{i.guest}}) </li>
+    <li>Room Name   : {{i.room.name}}</li>
+    <li>Room Price : {{i.room.price}}</li>
+    <li>check_in   : {{i.check_in}}</li>
+    <li>check_out   : {{i.check_out}}</li>
+    <li>People    : {{i.room.number_of_people}}</li>
+    <li>city   : {{i.room.city}}</li>
+</ul>
+{% endfor %}
+
+</body>
+</html>

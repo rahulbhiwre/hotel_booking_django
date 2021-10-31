@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Book Room</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#"><b> Hotel {{hotel_name}}</b><span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"> Room <b> {{room.name}}</b> </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"> City <b>{{room.city}}</b> </a>
+      </li>
+
+      <li class="nav-item" style="margin-left:500px; float: left; ">
+        <a class="nav-link btn btn-danger" href="{% url 'logout' %}">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="column">
+  <div class="col">
+    <div class="card">
+      <div class="card-header">
+        Hotel Name : {{hotel_name}} <br>
+        Room Name : {{room.name}} <br>
+        Room City : {{room.city}}
+        </div>
+      <div class="card-body">
+        <h5 class="card-title">{{room.desc}}</h5>
+        <p class="card-text">Price of room is <b>{{room.price}} </b> </p>
+      </div>
+    </div>
+  </div>
+<br>
+
+<div class="column">
+  <div class="col">
+    <div class="card">
+      <div class="card-header">
+        Booking Details
+        </div>
+      <div class="card-body">
+        <h5 class="card-title">Fill All Info</h5>
+        <p class="card-text">
+        <form method="POST">
+{% csrf_token %}
+ <div class="form-row">
+    <div class="form-group col ">
+
+    <div class="form-group col ">
+      <label for="disabledSelect">full name : </label>
+      <input type="text" name="fullname" class="form-control" placeholder="Full_Name" Required>
+    </div>
+        <div class="form-group col ">
+      <label for="disabledSelect">email :</label>
+      <input type="email" name="email" class="form-control" placeholder="email" Required>
+    </div>
+        <div class="form-group col ">
+      <label for="disabledSelect">mobile    : </label>
+      <input type="text" name="mobile" class="form-control" placeholder="mobile" Required>
+    </div>
+    <div class="form-group col ">
+      <label for="disabledSelect">check in date : </label>
+      <input type="date" class="form-control" id="date" placeholder="check_in" value="{{placement.date|date:' Y-m-d' }}" name = "check_in" Required>
+    </div>
+    <div class="form-group col ">
+      <label for="disabledSelect">check out date : </label>
+      <input type="date" class="form-control" id="date" value="{{placement.date|date:' Y-m-d' }}" name = "check_out" Required>
+    </div>
+
+
+    <div class="form-group ">
+      <button name="submit" class="btn btn-success" type="submit">Book Room</button>
+    </div>
+  </div>
+  </div>
+</form>
+         </p>
+      </div>
+    </div>
+  </div>
+
+
+<h4>{{errors}} </h4>
+<h4>{{sucess}}</h4>
+
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Hotel_Home </title>
+</head>
+<body>
+
+Welcome Mr.<b> {{username}} </b> <br>
+<a href = {% url 'logout' %}> logout here </a>
+
+{% if added %}
+<h4> Your Hotel Name is  {{hotelname}}  </h4>
+<br>
+<a href = {% url 'hotels:addroom' %} > add room here </a>
+<br><br>
+
+<a href = {% url 'hotels:viewroom' %} > view rooms here </a>
+<br><br>
+<a href = {% url 'hotels:bookinginfo' %} > Booking Till now Info </a>
+
+{% else %}
+<form  method = "POST">
+	{% csrf_token %}
+    <input type="text" name="content">
+    <input type="submit" value="Add Hotel Name Now">
+</form>
+{% endif %}
+
+
+</body>
+</html>

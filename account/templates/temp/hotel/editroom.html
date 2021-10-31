@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h2> Edit Room Here !!   </h2>  <br>
+
+
+<form  method = "POST">
+	{% csrf_token %}
+  room_name : <input type="text" name="roomname" value = {{name}}>  <br>
+  room_price : <input type="number" step="1" name="roomprice" value = {{price}}><br>
+  no of people : <input type="number" step="1" name="people" value = {{people}}><br>
+  desc : <input type="text" name="desc" value = {{desc}}>  <br>
+  city : <input type="text" name="city" value = {{city}}>  <br>
+    <input type="submit" value="Save Changes"><br>
+</form>
+
+</body>
+</html>
